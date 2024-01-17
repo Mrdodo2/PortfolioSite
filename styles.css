@@ -155,7 +155,7 @@ img {
     width: 50%;
     border: solid 3px var(--main-color);
     margin: 20px;
-    background: url('images/background_Pink.jpg') no-repeat center center fixed;
+    background: url('images/background_Pink.webp') no-repeat center center fixed;
     background-size: cover;
 }
 
@@ -225,7 +225,7 @@ img {
     display: block;
     padding: 10px;
     border: solid 3px var(--main-color);
-    background: url('images/background_Pink.jpg') no-repeat center center fixed;
+    background: url('images/background_Pink.webp') no-repeat center center fixed;
     background-size: cover;
 }
 
@@ -236,7 +236,7 @@ img {
 
 /* Styles pour le footer */
 footer {
-    background: url('images/background_Pink.jpg') no-repeat center center fixed;
+    background: url('images/background_Pink.webp') no-repeat center center fixed;
     background-size: cover;
     padding: 20px 0;
     text-align: center !important;
