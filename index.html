@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+    <link rel="preload" fetchpriority="high" as="image" href="images/background_Pink.webp" type="image/webp">
+    <link rel="preload" fetchpriority="high" as="image" href="images/background.webp" type="image/webp">
 </head>
 
 <body>
@@ -107,7 +109,6 @@
         </section>
     </main>
     
-
     <!-- La page "info" -->
     <section id="info" class="bg-contact" style="display: none;">
 
@@ -135,23 +136,28 @@
     <footer class="bg-footer">
         <p>&copy; 2024 Desplats Dorian. Tous droits réservés.</p>
     </footer>
-
     <script>
-        // Sélectionnez le lien "Info" avec la classe ajoutée
         document.querySelector('.nav-link[href="#info"]').addEventListener('click', function() {
-            // Masquez la section principale
             document.querySelector('main').style.display = 'none';
-            // Affichez la section "Info"
             document.getElementById('info').style.display = 'block';
         });
-
-        // Ajoutez un gestionnaire de clic pour revenir à la page principale depuis "Info"
         document.getElementById('retourAccueil').addEventListener('click', function() {
-            // Affichez la section principale
             document.querySelector('main').style.display = 'block';
-            // Masquez la section "Info"
+
             document.getElementById('info').style.display = 'none';
         });
+
+document.addEventListener("DOMContentLoaded", function () {
+    var videoItems = document.querySelectorAll('.video-item');
+    videoItems.forEach(function (item) {
+        item.addEventListener('mouseover', function () {
+            item.classList.add('hovered');
+        });
+        item.addEventListener('mouseout', function () {
+            item.classList.remove('hovered');
+        });
+    });
+});
     </script>
 </body>
 </html>
