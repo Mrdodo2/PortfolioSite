@@ -35,7 +35,7 @@
             <div class="game">
                 <div class="video-item-portfolio" >
                     <h3>BROADCAST</h3>
-                        <iframe width="854" height="480" src="https://www.youtube.com/embed/xUzfTNik9Rc?si=whcIEmHJ4Tm_CPeF" hd=1 title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"  allowfullscreen></iframe>
+                        <iframe width="854" height="480" src="https://www.youtube.com/embed/xUzfTNik9Rc?si=whcIEmHJ4Tm_CPeF;" hd=1 title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"  allowfullscreen></iframe>
                 </div>
                 <div class="video-item-portfolio">
                     <h3>videoGAME</h3>
@@ -145,45 +145,14 @@
             document.getElementById('info').style.display = 'none';
         });
 
-//delay le chargement des videos 
-document.addEventListener("DOMContentLoaded", function() {
-  var lazyloadImages = document.querySelectorAll("iframe.lazy");    
-  var lazyloadThrottleTimeout;
-  
-  function lazyload () {
-    if(lazyloadThrottleTimeout) {
-      clearTimeout(lazyloadThrottleTimeout);
-    }    
-    
-    lazyloadThrottleTimeout = setTimeout(function() {
-        var scrollTop = window.pageYOffset;
-        lazyloadImages.forEach(function(iframe) {
-            if(iframe.offsetTop < (window.innerHeight + scrollTop)) {
-              iframe.src = iframe.dataset.src;
-              iframe.classList.remove('lazy');
-            }
-        });
-        if(lazyloadImages.length == 0) { 
-          document.removeEventListener("scroll", lazyload);
-          window.removeEventListener("resize", lazyload);
-          window.removeEventListener("orientationChange", lazyload);
-        }
-    }, 20);
-  }
-  
-  document.addEventListener("scroll", lazyload);
-  window.addEventListener("resize", lazyload);
-  window.addEventListener("orientationChange", lazyload);
-});
-
-//Zoom quand on passe la souris sur une video
-document.addEventListener("DOMContentLoaded", function () {
-    var videoItems = document.querySelectorAll('.video-item');
-    videoItems.forEach(function (item) {
-        item.addEventListener('mouseover', function () {
-            item.classList.add('hovered');
-        });
-        item.addEventListener('mouseout', function () {
+        //Zoom quand on passe la souris sur une video
+    document.addEventListener("DOMContentLoaded", function () {
+        var videoItems = document.querySelectorAll('.video-item');
+        videoItems.forEach(function (item) {
+            item.addEventListener('mouseover', function () {
+                item.classList.add('hovered');
+            });
+            item.addEventListener('mouseout', function () {
             item.classList.remove('hovered');
         });
     });
