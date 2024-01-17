@@ -134,6 +134,7 @@
         <p>&copy; 2024 Desplats Dorian. Tous droits réservés.</p>
     </footer>
     <script>
+        //permet le passage entre les 2 pages
         document.querySelector('.nav-link[href="#info"]').addEventListener('click', function() {
             document.querySelector('main').style.display = 'none';
             document.getElementById('info').style.display = 'block';
@@ -144,36 +145,38 @@
             document.getElementById('info').style.display = 'none';
         });
 
-        document.addEventListener("DOMContentLoaded", function() {
-          var lazyloadImages = document.querySelectorAll("iframe.lazy");    
-          var lazyloadThrottleTimeout;
-          
-          function lazyload () {
-            if(lazyloadThrottleTimeout) {
-              clearTimeout(lazyloadThrottleTimeout);
-            }    
-            
-            lazyloadThrottleTimeout = setTimeout(function() {
-                var scrollTop = window.pageYOffset;
-                lazyloadIframe.forEach(function(iframe) {
-                    if(iframe.offsetTop < (window.innerHeight + scrollTop)) {
-                      iframe.src = iframe.dataset.src;
-                      iframe.classList.remove('lazy');
-                    }
-                });
-                if(lazyloadImages.length == 0) { 
-                  document.removeEventListener("scroll", lazyload);
-                  window.removeEventListener("resize", lazyload);
-                  window.removeEventListener("orientationChange", lazyload);
-                }
-            }, 20);
-          }
-          
-          document.addEventListener("scroll", lazyload);
-          window.addEventListener("resize", lazyload);
-          window.addEventListener("orientationChange", lazyload);
+//delay le chargement des videos 
+document.addEventListener("DOMContentLoaded", function() {
+  var lazyloadImages = document.querySelectorAll("iframe.lazy");    
+  var lazyloadThrottleTimeout;
+  
+  function lazyload () {
+    if(lazyloadThrottleTimeout) {
+      clearTimeout(lazyloadThrottleTimeout);
+    }    
+    
+    lazyloadThrottleTimeout = setTimeout(function() {
+        var scrollTop = window.pageYOffset;
+        lazyloadImages.forEach(function(iframe) {
+            if(iframe.offsetTop < (window.innerHeight + scrollTop)) {
+              iframe.src = iframe.dataset.src;
+              iframe.classList.remove('lazy');
+            }
         });
+        if(lazyloadImages.length == 0) { 
+          document.removeEventListener("scroll", lazyload);
+          window.removeEventListener("resize", lazyload);
+          window.removeEventListener("orientationChange", lazyload);
+        }
+    }, 20);
+  }
+  
+  document.addEventListener("scroll", lazyload);
+  window.addEventListener("resize", lazyload);
+  window.addEventListener("orientationChange", lazyload);
+});
 
+//Zoom quand on passe la souris sur une video
 document.addEventListener("DOMContentLoaded", function () {
     var videoItems = document.querySelectorAll('.video-item');
     videoItems.forEach(function (item) {
