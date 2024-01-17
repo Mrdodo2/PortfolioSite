@@ -4,6 +4,9 @@ body {
     color: var(--main-color);
 }
 
+@font-face{
+    font-display: swap;
+}
 
 /* Reset des styles pour assurer une base cohérente */
 body, h1, h2, h3, p, ul, li {
@@ -140,6 +143,7 @@ img {
     max-width: 1920px;
     display: block;
     border-top: 3px solid var(--main-color);
+    border-bottom: 3px solid var(--main-color);
 }
 
 .work h3 {
@@ -154,7 +158,7 @@ img {
     border: solid 3px var(--main-color);
     margin: 20px;
     background: url('images/background_Pink.webp') no-repeat center center fixed;
-    background-size: cover;
+    background-size: auto;
 }
 
 .video-item-portfolio:first-child{
