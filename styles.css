@@ -131,7 +131,7 @@ img {
     margin-top: 30px;
 }
 
-.work video {
+.work iframe {
     position: relative;
     overflow: hidden;
     color: #000000;
